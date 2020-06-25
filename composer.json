@@ -5,7 +5,7 @@
     "keywords": ["DBAL", "ORM", "Database", "Persistence"],
     "homepage": "http://www.doctrine-project.org",
     "license": "MIT",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Fabien Potencier",
