@@ -18,7 +18,10 @@ class DoctrineDataCollectorTest extends TestCase
     {
         $manager   = $this->getMockBuilder('Doctrine\ORM\EntityManager')->disableOriginalConstructor()->getMock();
         $config    = $this->getMockBuilder('Doctrine\ORM\Configuration')->getMock();
-        $factory   = $this->getMockBuilder('Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory')
+        $factoryClass = class_exists('Doctrine\Persistence\Mapping\AbstractClassMetadataFactory')
+            ? 'Doctrine\Persistence\Mapping\AbstractClassMetadataFactory'
+            : 'Doctrine\Common\Persistence\Mapping\AbstractClassMetadataFactory';
+        $factory   = $this->getMockBuilder($factoryClass)
             ->setMethods(['getLoadedMetadata'])->getMockForAbstractClass();
         $collector = $this->createCollector(['default' => $manager]);
 
